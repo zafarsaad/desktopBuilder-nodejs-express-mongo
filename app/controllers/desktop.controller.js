@@ -5,7 +5,7 @@ const Desktop = db.desktops;
 exports.create = (req, res) => {
     // Validate request
     if (!req.body.name) {
-        res.status(500).send({ message: "Name cannot be empty" });
+        res.status(400).send({ message: "Name cannot be empty" });
         return;
     }
 
