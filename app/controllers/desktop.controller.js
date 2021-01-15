@@ -102,6 +102,10 @@ exports.delete = (req, res) => {
                 res.status(404).send({
                     message: `Cannot delete Desktop with ID = ${id}. Maybe Desktop was not found?`
                 })
+            } else {
+                res.send({
+                    message: "Desktop was deleted successfully!"
+                });
             }
         })
         .catch(err => {
@@ -130,7 +134,7 @@ exports.deleteAll = (req, res) => {
 // Find all published Tutorials
 exports.findAllWorking = (req, res) => {
     Desktop.find({ working: true })
-        .then( data => {
+        .then(data => {
             res.send(data);
         })
         .catch(err => {
